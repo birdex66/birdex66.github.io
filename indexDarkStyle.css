@@ -1,7 +1,7 @@
 html, body {
     height: 100%;
     font-family: 'Inter', sans-serif;
-    transition: background-image 0.4s ease;
+    transition: background-image 0.35s ease;
 }
 
 body{

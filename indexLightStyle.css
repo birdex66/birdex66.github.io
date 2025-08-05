@@ -1,7 +1,8 @@
 html, body {
     height: 100%;
+    overflow-x: hidden;
     font-family: 'Inter', sans-serif;
-    transition: background-image 0.4s ease;
+    transition: background-image 0.35s ease;
 }
 
 body{
@@ -15,7 +16,8 @@ body{
 header {
     display: flex;
     width: 100%;
-    height: 50px;
+    min-height: 3.125rem;
+    height:auto;
     background-color: #B3BDA6;
     margin-bottom: 5em;
     justify-content: flex-end;
@@ -24,50 +26,50 @@ header {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-#home{
+#home {
     user-select: none;
     text-decoration: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
     background: #A64438;
     color: #EDE5CE;
-    font-size: 33px;
+    font-size: 2rem;
     font-weight: 800;
-    text-align: center;
-    line-height: 100px; /* vertically center */
-    margin-right: 20px;
+    margin-right: 1.25rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align:center;
+    text-align: center;
+
     transition: background 0.15s ease;
 }
 
-#home:active{
-    width: 37px;
-    height: 37px;
-    font-size: 30px;
-    margin-right: 23px;
-    background: #DA9D47
+#home:active {
+    width: 2.313rem;
+    height: 2.313rem;
+    font-size: 1.875rem;
+    margin-right: 1.438rem;
+    background: #DA9D47;
 }
 
 #lighting_mode {
     user-select: none;
     position: relative;
-    width: 129px;
-    height: 40px;
-    border-radius: 10px;
+    width: 8.063rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
     background: #DA9D47;
     color: #8B4703;
-    font-size: 30px;
+    font-size: 1.875rem;
     font-weight: 800;
-    text-align: center;
-    line-height: 40px; /* vertically center */
-    margin-right: 20px;
+    margin-right: 1.25rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     transition: background 0.3s ease, color 0.3s ease;
 }
@@ -80,8 +82,9 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    font-size: 30px;
+    font-size: 1.875rem;
     font-weight: 800;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,10 +110,10 @@ header {
 }
 
 h5 {
-    width: 441px;
-    height: 33px;
+    width: 27.563rem;
+    height: 2.063rem;
     color: #FFDDB5;
-    font-size: 30px;
+    font-size: 1.875rem;
     font-style: italic;
     font-weight: 500;
     line-height: normal;
@@ -119,10 +122,10 @@ h5 {
 }
 
 h6{
-    width: 441px;
-    height: 33px;
+    width: 27.563rem;
+    height: 2.063rem;
     color: #FFDDB5;
-    font-size: 20px;
+    font-size: 1.25rem;
     white-space: pre-wrap;
     font-style: italic;
     font-weight: 500;
@@ -133,7 +136,7 @@ h6{
 
 h2 {
     color: #F4F4F4;
-    font-size: 80px;
+    font-size: 5rem;
     font-style: italic;
     color: 0.3s ease;
     font-weight: 500;
@@ -149,18 +152,18 @@ ul.logos {
 }
 
 .logos{
-     margin-top:100px;
+     margin-top:6.25rem;
      display:flex;
      justify-content: space-between;
      flex-direction:row;
      list-style:none;
-     gap:50px;
+     gap:3.125rem;
 }
 
 .logo {
     user-select: none;
-    width: 81px;
-    height: 81px;
+    width: 5.063rem;
+    height: 5.063rem;
     padding:0;
     background-size: contain;
     background-repeat: no-repeat;
@@ -194,25 +197,26 @@ ul.logos {
     align-items: center;
 
 
-    margin-top:20px;
-    width: 200px;
-    height: 40px;
+    margin-top:1.25rem;
+    width: 12.5rem;
+    height: 2.5rem;
 /*     border: 1px solid #404040; */
-    border-radius: 10px;
-    opacity:0.9 ;
+    border-radius: 0.625rem;
+    opacity:0.9;
     text-decoration: none;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     color: #ABD4B2;
     background-color: #4E785E;
     font-weight: bold;
     font-family: 'Inter', sans-serif;
-    font-size:22px;
+    font-size:1.375rem;
     transition: background 0.2s ease , color 0.3s ease, opacity 0.3s ease;
 }
 
 #resume:hover{
     opacity:1;
-    color: #CFC5B8;
+/*     color: #CFC5B8; */
+    color: #E8D4AC;
 }
 
 
@@ -224,7 +228,7 @@ ul.logos {
     gap: 20em;                 /* space between buttons */
     list-style: none;
     padding: 0;
-    margin-top: 140px;
+    margin-top: 8.75rem;
 }
 
 /* Button styling */
@@ -235,10 +239,10 @@ ul.logos {
 
 
 
-    width: 300px;
-    height: 70px;
+    width: 18.75rem;
+    height: 4.375rem;;
     border: 1px solid #404040;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background: #CAC076;
     text-decoration: none;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -246,7 +250,7 @@ ul.logos {
     background-color:#D9D9D9;
     font-weight: bold;
     font-family: 'Inter', sans-serif;
-    font-size:28px;
+    font-size:1.75rem;
     transition: background 0.2s ease , color 0.3s ease;
 }
 
