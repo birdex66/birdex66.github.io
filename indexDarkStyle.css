@@ -217,11 +217,13 @@ ul.logos {
     display: flex;
     justify-content: center;  /* center buttons horizontally */
     align-items: center;      /* center vertically (if needed) */
+    flex-direction: row;
     gap: 20em;                 /* space between buttons */
     list-style: none;
     padding: 0;
-    margin-top: 200px;
+    margin-top: 140px;
 }
+
 
 /* Button styling */
 .buttons li a {
