@@ -26,7 +26,8 @@ function applyMobileStyles() {
         var home = document.getElementById('home');
 
         top.style.marginTop = "4em";
-        themeWatcher.style.height = "65px";
+        themeWatcher.style.height = "4.063rem";
+        themeWatcher.style.fontSize="2.813rem";
 
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].style.flexDirection = "column";
@@ -34,9 +35,9 @@ function applyMobileStyles() {
         }
 
         header.style.width = "78%";
-        header.style.height = "80px"
-        home.style.width = "45px";
-        home.style.height = "65px";
+        header.style.height = "5rem"
+        home.style.width = "2.813rem";
+        home.style.height = "4.063rem";
         header.style.transformOrigin = "top";
         header.style.transform = "scale(1.3)";
         intro.style.transformOrigin = "top";
