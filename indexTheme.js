@@ -3,11 +3,11 @@ var themeWatcher = document.getElementById('lighting_mode');
 
 themeWatcher.addEventListener('click', () => {
     if(!themeCur){
-        document.getElementById("pagestyle").setAttribute("href", "style/indexDarkStyle.css");
+        document.getElementById("pagestyle").setAttribute("href", "indexDarkStyle.css");
         themeWatcher.textContent="☾";
         themeCur = true;
     }else{
-        document.getElementById("pagestyle").setAttribute("href", "style/indexLightStyle.css");
+        document.getElementById("pagestyle").setAttribute("href", "indexLightStyle.css");
         themeWatcher.textContent="☼"
         themeCur = false;
     }

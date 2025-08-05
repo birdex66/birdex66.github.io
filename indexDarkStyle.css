@@ -118,12 +118,20 @@ h6{
      flex-direction:row;
      list-style:none;
      gap:50px;
+
 }
+
+ul.logos {
+    padding: 0;
+    list-style: none;
+}
+
 
 .logo {
     user-select: none;
     width: 81px;
     height: 81px;
+    padding:0;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

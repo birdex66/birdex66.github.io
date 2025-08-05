@@ -110,6 +110,12 @@ h2 {
     margin: 0.2em 0;
 }
 
+
+ul.logos {
+    padding: 0;
+    list-style: none;
+}
+
 .logos{
      margin-top:100px;
      display:flex;
@@ -120,8 +126,10 @@ h2 {
 }
 
 .logo {
+    user-select: none;
     width: 81px;
     height: 81px;
+    padding:0;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
