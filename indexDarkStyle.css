@@ -1,7 +1,7 @@
 html, body {
     height: 100%;
     font-family: 'Inter', sans-serif;
-    transition: background-image 0.3s ease;
+    transition: background-image 0.4s ease;
 }
 
 body{
@@ -22,6 +22,34 @@ header {
     align-items: center;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 /*     /transition: background-image 0.3s ease; */
+}
+
+#home{
+    user-select: none;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #B3BDA6;
+    color: #3D403D;
+    font-size: 33px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 100px; /* vertically center */
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    transition: background 0.2s ease;
+}
+
+#home:active{
+    width: 37px;
+    height: 37px;
+    font-size: 30px;
+    margin-right: 23px;
+    background: #DFCCE6
 }
 
 #lighting_mode {
@@ -156,6 +184,34 @@ ul.logos {
     background-image: url('img/in-logo/in-logo/InBug-Black.png');
 }
 
+
+
+#resume{
+    display: flex; /* use flex inside the button itself */
+    justify-content: center;
+    align-items: center;
+
+
+    margin-top:20px;
+    width: 200px;
+    height: 40px;
+/*     border: 1px solid #404040; */
+    border-radius: 10px;
+    opacity:0.8;
+    text-decoration: none;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: #B8CFCF;
+    background-color: #527F82;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size:22px;
+    transition: background 0.2s ease , color 0.3s ease, opacity 0.3s ease;
+}
+
+#resume:hover{
+    opacity:1;
+    color: #CFC5B8;
+}
 
 .buttons {
     display: flex;

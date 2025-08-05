@@ -1,7 +1,7 @@
 html, body {
     height: 100%;
     font-family: 'Inter', sans-serif;
-    transition: background-image 0.3s ease;
+    transition: background-image 0.4s ease;
 }
 
 body{
@@ -21,6 +21,35 @@ header {
     justify-content: flex-end;
     align-items: center;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#home{
+    user-select: none;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #A64438;
+    color: #EDE5CE;
+    font-size: 33px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 100px; /* vertically center */
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    transition: background 0.15s ease;
+}
+
+#home:active{
+    width: 37px;
+    height: 37px;
+    font-size: 30px;
+    margin-right: 23px;
+    background: #DA9D47
 }
 
 #lighting_mode {
@@ -86,6 +115,7 @@ h5 {
     font-weight: 500;
     line-height: normal;
     margin: 0.5em 0;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 h6{
@@ -98,6 +128,7 @@ h6{
     font-weight: 500;
     line-height: normal;
     margin: 0.5em 0;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 h2 {
@@ -108,6 +139,7 @@ h2 {
     font-weight: 500;
     line-height: normal;
     margin: 0.2em 0;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -136,7 +168,8 @@ ul.logos {
     transition: background-image 0.3s ease;
 }
 
-/* Default logos */
+/*/* Default logos */
+
 #gitLogo {
     background-image: url('img/github-mark/github-mark.png');
 }
@@ -155,6 +188,34 @@ ul.logos {
 }
 
 
+#resume{
+    display: flex; /* use flex inside the button itself */
+    justify-content: center;
+    align-items: center;
+
+
+    margin-top:20px;
+    width: 200px;
+    height: 40px;
+/*     border: 1px solid #404040; */
+    border-radius: 10px;
+    opacity:0.9 ;
+    text-decoration: none;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: #ABD4B2;
+    background-color: #4E785E;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size:22px;
+    transition: background 0.2s ease , color 0.3s ease, opacity 0.3s ease;
+}
+
+#resume:hover{
+    opacity:1;
+    color: #CFC5B8;
+}
+
+
 .buttons {
     display: flex;
     justify-content: center;  /* center buttons horizontally */
@@ -163,7 +224,7 @@ ul.logos {
     gap: 20em;                 /* space between buttons */
     list-style: none;
     padding: 0;
-    margin-top: 200px;
+    margin-top: 140px;
 }
 
 /* Button styling */
