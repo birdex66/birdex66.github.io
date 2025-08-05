@@ -21,7 +21,7 @@ header {
     justify-content: flex-end;
     align-items: center;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    transition: background-image 0.3s ease;
+/*     /transition: background-image 0.3s ease; */
 }
 
 #lighting_mode {
@@ -37,6 +37,9 @@ header {
     text-align: center;
     line-height: 40px; /* vertically center */
     margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     transition: background 0.3s ease, color 0.3s ease;
 }
