@@ -16,7 +16,7 @@ function hideLoader() {
         loader.classList.add('fade-out');
         setTimeout(() => {
             loader.style.display = 'none';
-        }, 1000);
+        }, 500);
     }
 }
 
