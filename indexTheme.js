@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
 
 
 themeWatcher.addEventListener('click', () => {
-    let loaderTimeout = setTimeout(showLoader, 1000);
+    let loaderTimeout = setTimeout(showLoader, 100);
     var newHref = themeCur ? "indexLightStyle.css" : "indexDarkStyle.css";
     var newThemeLink = document.createElement('link');
 
