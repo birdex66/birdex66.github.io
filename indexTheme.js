@@ -37,23 +37,42 @@ themeWatcher.addEventListener('click', () => {
     newThemeLink.onload = () => {
         const oldLink = document.getElementById("pagestyle");
         if (oldLink) oldLink.remove();
-
         newThemeLink.id = "pagestyle";
+
         themeWatcher.textContent = themeCur ? "☼" : "☾";
         themeCur = !themeCur;
         applyMobileStyles();
 
         if (firstThemeSwitch) {
-            requestAnimationFrame(() => {
+            waitForAllImagesToLoad().then(() => {
                 requestAnimationFrame(() => {
-                    hideLoader();
-                    firstThemeSwitch = false;
+                    requestAnimationFrame(() => {
+                        hideLoader();
+                        firstThemeSwitch = false;
+                    });
                 });
             });
         }
     };
+
     document.head.appendChild(newThemeLink);
 });
+
+
+function waitForAllImagesToLoad() {
+    const images = Array.from(document.images);
+    const loadingImages = images.filter(img => !img.complete);
+
+    if (loadingImages.length === 0) {
+        return Promise.resolve();
+    }
+
+    return Promise.all(loadingImages.map(img => new Promise(resolve => {
+        img.onload = img.onerror = () => resolve();
+    })));
+}
+
+
 
 
 function applyMobileStyles() {
