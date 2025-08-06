@@ -15,7 +15,7 @@ function hideLoader() {
         loader.classList.add('fade-out');
         setTimeout(() => {
             loader.style.display = 'none';
-        }, 1000);
+        }, 500);
     }
 }
 
@@ -26,12 +26,7 @@ window.addEventListener('load', () => {
 
 
 themeWatcher.addEventListener('click', () => {
-    let loaderTimeout;
-
-    loaderTimeout = setTimeout(() => {
-        showLoader();
-    }, 1000);
-
+    let loaderTimeout = setTimeout(showLoader, 1000);
     var newHref = themeCur ? "indexLightStyle.css" : "indexDarkStyle.css";
     var newThemeLink = document.createElement('link');
 
