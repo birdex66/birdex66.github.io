@@ -1,5 +1,6 @@
 var themeCur = false;
 var themeWatcher = document.getElementById('lighting_mode');
+var firstThemeSwitch = true;
 
 function showLoader() {
     const loader = document.getElementById('loader');
@@ -26,7 +27,13 @@ window.addEventListener('load', () => {
 
 
 themeWatcher.addEventListener('click', () => {
-    let loaderTimeout = setTimeout(showLoader, 100);
+    let loaderTimeout;
+
+    if(firstThemeSwitch){
+        firstThemeSwitch = !firstThemeSwitch;
+        loaderTimeout = setTimeout(showLoader, 100);
+    }
+
     var newHref = themeCur ? "indexLightStyle.css" : "indexDarkStyle.css";
     var newThemeLink = document.createElement('link');
 
