@@ -16,7 +16,7 @@ function hideLoader() {
         loader.classList.add('fade-out');
         setTimeout(() => {
             loader.style.display = 'none';
-        }, 3000);
+        }, 1000);
     }
 }
 
@@ -27,13 +27,7 @@ window.addEventListener('load', () => {
 
 
 themeWatcher.addEventListener('click', () => {
-    let loaderTimeout;
-
-    if(firstThemeSwitch){
-        firstThemeSwitch = !firstThemeSwitch;
-        loaderTimeout = setTimeout(showLoader, 50);
-    }
-
+    if(firstThemeSwitch) showLoader();
     var newHref = themeCur ? "indexLightStyle.css" : "indexDarkStyle.css";
     var newThemeLink = document.createElement('link');
 
@@ -43,16 +37,17 @@ themeWatcher.addEventListener('click', () => {
     newThemeLink.href = newHref;
 
     newThemeLink.onload = () => {
-        clearTimeout(loaderTimeout);
         var oldLink = document.getElementById("pagestyle")
-        if(oldLink && oldLink !== newThemeLink){
-            oldLink.remove();
-        }
+        if(oldLink && oldLink !== newThemeLink) oldLink.remove();
 
         themeWatcher.textContent = themeCur ? "☼" : "☾";
         themeCur = !themeCur;
         applyMobileStyles();
-        hideLoader();
+
+         if (firstThemeSwitch) {
+             hideLoader();
+            firstThemeSwitch = false;
+        }
     };
     document.head.appendChild(newThemeLink);
 });
