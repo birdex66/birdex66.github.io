@@ -1,6 +1,15 @@
 var themeCur = false;
 var themeWatcher = document.getElementById('lighting_mode');
 
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.classList.add('fade-out');
+      setTimeout(() => loader.remove(), 500);
+    }
+  });
+
+
 themeWatcher.addEventListener('click', () => {
     if (!themeCur) {
         document.getElementById("pagestyle").setAttribute("href", "indexDarkStyle.css");
@@ -12,7 +21,7 @@ themeWatcher.addEventListener('click', () => {
         themeCur = false;
     }
 
-    setTimeout(applyMobileStyles, 100); // 100ms delay
+    setTimeout(applyMobileStyles, 100);
 });
 
 
