@@ -24,6 +24,25 @@ window.addEventListener('load', () => {
     hideLoader();
 });
 
+function waitForAllImagesToDecode() {
+  const images = Array.from(document.images);
+  const decodingPromises = images.map(img => {
+    if (img.complete) {
+      return img.decode ? img.decode() : Promise.resolve();
+    }
+    return new Promise((resolve, reject) => {
+      img.onload = () => {
+        if (img.decode) {
+          img.decode().then(resolve).catch(resolve);
+        } else {
+          resolve();
+        }
+      };
+      img.onerror = () => resolve();
+    });
+  });
+  return Promise.all(decodingPromises);
+}
 
 
 themeWatcher.addEventListener('click', () => {
@@ -57,22 +76,6 @@ themeWatcher.addEventListener('click', () => {
 
     document.head.appendChild(newThemeLink);
 });
-
-
-function waitForAllImagesToLoad() {
-    const images = Array.from(document.images);
-    const loadingImages = images.filter(img => !img.complete);
-
-    if (loadingImages.length === 0) {
-        return Promise.resolve();
-    }
-
-    return Promise.all(loadingImages.map(img => new Promise(resolve => {
-        img.onload = img.onerror = () => resolve();
-    })));
-}
-
-
 
 
 function applyMobileStyles() {
