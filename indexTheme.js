@@ -56,24 +56,21 @@ themeWatcher.addEventListener('click', () => {
     newThemeLink.onload = () => {
         const oldLink = document.getElementById("pagestyle");
         if (oldLink) oldLink.remove();
-        newThemeLink.id = "pagestyle";
 
+        newThemeLink.id = "pagestyle";
         themeWatcher.textContent = themeCur ? "☼" : "☾";
         themeCur = !themeCur;
         applyMobileStyles();
 
         if (firstThemeSwitch) {
-            waitForAllImagesToLoad().then(() => {
+            requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        hideLoader();
-                        firstThemeSwitch = false;
-                    });
+                    hideLoader();
+                    firstThemeSwitch = false;
                 });
             });
         }
     };
-
     document.head.appendChild(newThemeLink);
 });
 
