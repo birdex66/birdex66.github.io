@@ -27,26 +27,29 @@ window.addEventListener('load', () => {
 
 
 themeWatcher.addEventListener('click', () => {
-    if(firstThemeSwitch) showLoader();
-    var newHref = themeCur ? "indexLightStyle.css" : "indexDarkStyle.css";
-    var newThemeLink = document.createElement('link');
+    if (firstThemeSwitch) showLoader();
 
-
+    const newHref = themeCur ? "indexLightStyle.css" : "indexDarkStyle.css";
+    const newThemeLink = document.createElement('link');
     newThemeLink.rel = "stylesheet";
-    newThemeLink.id = "pagestyle";
     newThemeLink.href = newHref;
 
     newThemeLink.onload = () => {
-        var oldLink = document.getElementById("pagestyle")
-        if(oldLink && oldLink !== newThemeLink) oldLink.remove();
+        const oldLink = document.getElementById("pagestyle");
+        if (oldLink) oldLink.remove();
 
+        newThemeLink.id = "pagestyle";
         themeWatcher.textContent = themeCur ? "☼" : "☾";
         themeCur = !themeCur;
         applyMobileStyles();
 
-         if (firstThemeSwitch) {
-             hideLoader();
-            firstThemeSwitch = false;
+        if (firstThemeSwitch) {
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    hideLoader();
+                    firstThemeSwitch = false;
+                });
+            });
         }
     };
     document.head.appendChild(newThemeLink);
