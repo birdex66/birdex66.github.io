@@ -31,7 +31,7 @@ themeWatcher.addEventListener('click', () => {
 
     if(firstThemeSwitch){
         firstThemeSwitch = !firstThemeSwitch;
-        loaderTimeout = setTimeout(showLoader, 100);
+        loaderTimeout = setTimeout(showLoader, 50);
     }
 
     var newHref = themeCur ? "indexLightStyle.css" : "indexDarkStyle.css";
