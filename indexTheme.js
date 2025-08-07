@@ -1,6 +1,32 @@
 var themeCur = false;
 var themeWatcher = document.getElementById('lighting_mode');
 var firstThemeSwitch = true;
+var buttonWatcher = document.querySelectorAll('.btns a, a.btns');
+
+buttonWatcher.forEach(btn => {
+    btn.addEventListener('click',(e) => {
+        e.preventDefault();
+        if(!themeCur) updateParam(btn,'theme','light');
+        else updateParam(btn,'theme','dark');
+    });
+});
+
+function updateParam(btn,key,val){
+    const url = new URL(btn.href);
+    url.searchParams.set(key,val);
+    window.location.href = url.toString();
+}
+
+window.addEventListener('load', () => {
+    hideLoader();
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+    const theme = params.get('theme');
+    // console.log(theme);
+    if(theme === 'dark'){
+        switchTheme();
+    }
+});
 
 function showLoader() {
     const loader = document.getElementById('loader');
@@ -20,11 +46,12 @@ function hideLoader() {
     }
 }
 
-window.addEventListener('load', () => {
-    hideLoader();
+themeWatcher.addEventListener('click', () => {
+    switchTheme();
 });
 
-themeWatcher.addEventListener('click', () => {
+
+function switchTheme(){
     if (firstThemeSwitch) showLoader();
 
     const newHref = themeCur ? "indexLightStyle.css" : "indexDarkStyle.css";
@@ -51,7 +78,8 @@ themeWatcher.addEventListener('click', () => {
         }
     };
     document.head.appendChild(newThemeLink);
-});
+}
+
 
 function waitForAllImagesToDecode() {
   const images = Array.from(document.images);
@@ -111,9 +139,6 @@ function applyMobileStyles() {
 
     }
 }
-
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     applyMobileStyles();
