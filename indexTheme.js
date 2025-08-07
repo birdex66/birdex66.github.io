@@ -71,6 +71,7 @@ function switchTheme(){
         if (firstThemeSwitch) {
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
+                    waitForAllImagesToDecode();
                     hideLoader();
                     firstThemeSwitch = false;
                 });
