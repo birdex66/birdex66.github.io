@@ -59,47 +59,47 @@ function switchTheme(){
     newThemeLink.rel = "stylesheet";
     newThemeLink.href = newHref;
 
-    newThemeLink.onload = () => {
+    newThemeLink.onload = async () => {
         const oldLink = document.getElementById("pagestyle");
         if (oldLink) oldLink.remove();
-
         newThemeLink.id = "pagestyle";
+
+        await waitForImagesToLoad();
+
         themeWatcher.textContent = themeCur ? "☼" : "☾";
         themeCur = !themeCur;
         applyMobileStyles();
-
-        if (firstThemeSwitch) {
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    waitForAllImagesToDecode();
-                    hideLoader();
-                    firstThemeSwitch = false;
-                });
-            });
-        }
+        hideLoader();
     };
     document.head.appendChild(newThemeLink);
 }
 
 
-function waitForAllImagesToDecode() {
-  const images = Array.from(document.images);
-  const decodingPromises = images.map(img => {
-    if (img.complete) {
-      return img.decode ? img.decode() : Promise.resolve();
+function waitForImagesToLoad() {
+  return new Promise((resolve) => {
+    const images = Array.from(document.images);
+    let loaded = 0;
+
+    if (images.length === 0) {
+      resolve();
     }
-    return new Promise((resolve, reject) => {
-      img.onload = () => {
-        if (img.decode) {
-          img.decode().then(resolve).catch(resolve);
-        } else {
-          resolve();
-        }
-      };
-      img.onerror = () => resolve();
+
+    images.forEach((img) => {
+      if (img.complete && img.naturalHeight !== 0) {
+        loaded++;
+      } else {
+        img.addEventListener('load', check);
+        img.addEventListener('error', check);
+      }
     });
+
+    function check() {
+      loaded++;
+      if (loaded === images.length) {
+        resolve();
+      }
+    }
   });
-  return Promise.all(decodingPromises);
 }
 
 
