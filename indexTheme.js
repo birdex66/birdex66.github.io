@@ -1,4 +1,5 @@
 var themeCur = false;
+var visitedDark = false;
 var themeWatcher = document.getElementById('lighting_mode');
 var firstThemeSwitch = true;
 var buttonWatcher = document.querySelectorAll('.btns a, a.btns');
@@ -24,6 +25,7 @@ window.addEventListener('load', () => {
     const theme = params.get('theme');
     // console.log(theme);
     if(theme === 'dark'){
+        visitedDark = true;
         switchTheme();
     }
 });
@@ -52,7 +54,10 @@ themeWatcher.addEventListener('click', () => {
 
 
 function switchTheme(){
-    if (firstThemeSwitch) showLoader();
+    if (firstThemeSwitch){
+        if(visitedDark) document.getElementById('loader').style.background('#442D52');
+        showLoader();
+    }
 
     const newHref = themeCur ? "indexLightStyle.css" : "indexDarkStyle.css";
     const newThemeLink = document.createElement('link');
