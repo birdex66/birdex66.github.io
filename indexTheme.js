@@ -74,6 +74,7 @@ function switchTheme(){
                 'img/github-mark/github-mark.png',
                 'img/in-logo/in-logo/InBug-Black.png'
             ]);
+            firstThemeSwitch = !firstThemeSwitch;
         }
 
         themeWatcher.textContent = themeCur ? "☼" : "☾";
