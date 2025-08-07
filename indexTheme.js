@@ -77,30 +77,38 @@ function waitForAllImagesToDecode() {
 
 function applyMobileStyles() {
     if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        var buttons = document.getElementsByClassName('buttons');
-        var top = document.getElementById('top');
+        if(window.location.pathname.split('/').pop() === 'index.html'){
+            var buttons = document.getElementsByClassName('buttons');
+            var top = document.getElementById('top');
+            var intro = document.querySelector('.intro');
+
+            top.style.marginTop = "4em";
+
+             for (var i = 0; i < buttons.length; i++) {
+                buttons[i].style.flexDirection = "column";
+                buttons[i].style.gap = "5em";
+            }
+
+            intro.style.transformOrigin = "top";
+            intro.style.transform = "scale(1.3)";
+        }
+
         var header = document.querySelector('header');
-        var intro = document.querySelector('.intro');
         var themeWatcher = document.getElementById('lighting_mode');
         var home = document.getElementById('home');
 
-        top.style.marginTop = "4em";
         themeWatcher.style.height = "4.063rem";
         themeWatcher.style.fontSize="2.813rem";
 
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].style.flexDirection = "column";
-            buttons[i].style.gap = "5em";
-        }
-
         header.style.width = "78%";
         header.style.height = "5rem"
+
         home.style.width = "2.813rem";
         home.style.height = "4.063rem";
+
         header.style.transformOrigin = "top";
         header.style.transform = "scale(1.3)";
-        intro.style.transformOrigin = "top";
-        intro.style.transform = "scale(1.3)";
+
     }
 }
 
@@ -110,7 +118,3 @@ function applyMobileStyles() {
 document.addEventListener('DOMContentLoaded', function () {
     applyMobileStyles();
 });
-
-
-
-
