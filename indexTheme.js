@@ -55,7 +55,7 @@ themeWatcher.addEventListener('click', () => {
 
 function switchTheme(){
     if (firstThemeSwitch){
-        if(visitedDark) document.getElementById('loader').style.background = '#442D52';
+        if(!visitedDark) document.getElementById('loader').style.background = '#442D52';
         showLoader();
     }
 
