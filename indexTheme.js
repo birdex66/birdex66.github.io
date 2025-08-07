@@ -64,7 +64,17 @@ function switchTheme(){
         if (oldLink) oldLink.remove();
         newThemeLink.id = "pagestyle";
 
-        await waitForImagesToLoad();
+        if(firstThemeSwitch){
+            await waitForImagesToLoad();
+
+            await preloadBackgroundImages([
+                'img/Lawrencium.jpg',
+                'img/github-mark/github-mark-white.png',
+                'img/in-logo/in-logo/InBug-White.png',
+                'img/github-mark/github-mark.png',
+                'img/in-logo/in-logo/InBug-Black.png'
+            ]);
+        }
 
         themeWatcher.textContent = themeCur ? "☼" : "☾";
         themeCur = !themeCur;
@@ -74,6 +84,14 @@ function switchTheme(){
     document.head.appendChild(newThemeLink);
 }
 
+function preloadBackgroundImages(urls) {
+  return Promise.all(urls.map(url => new Promise((res, rej) => {
+    const img = new Image();
+    img.src = url;
+    img.onload = res;
+    img.onerror = res;
+  })));
+}
 
 function waitForImagesToLoad() {
   return new Promise((resolve) => {
