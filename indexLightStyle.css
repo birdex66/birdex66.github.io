@@ -30,10 +30,10 @@
   to { transform: rotate(360deg); }
 }
 
-
 html, body {
     height: 100%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
     transition: background-image 0.35s ease;
 }
@@ -57,6 +57,10 @@ header {
     align-items: center;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     transition: background 0.3s ease, color 0.3s ease;
+    position:sticky;
+    top:0;
+    z-index:9999;
+    padding: 20px 20px;
 }
 
 #home {
@@ -282,4 +286,54 @@ ul.logos {
 .buttons li a:hover {
     color:#D8E3DD;
     background: #3E6957;
+}
+
+.cont{
+    margin-top:300px;
+}
+
+.aboutCapImg {
+  display: flex;
+  flex-direction: row;
+  gap: 4em; /* was 5em */
+}
+
+h3 {
+  width: 88.95rem; /* was 1779px */
+  height: 2.9rem; /* was 58px */
+  justify-content: left;
+  text-align: left;
+  color: #F4FFF0;
+  font-family: Inter;
+  font-size: 2.4rem; /* was 48px */
+  font-style: italic;
+  font-weight: 900;
+  line-height: normal;
+}
+
+#quote {
+  margin-bottom: 4rem; /* was 80px */
+}
+
+p {
+  width: 57.1rem; /* was 1142px */
+  height: 19.55rem; /* was 391px */
+  color: #2F4C51;
+  font-family: Inter;
+  font-size: 1.8rem; /* was 36px */
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#response {
+  margin-top: 5rem; /* was 100px */
+}
+
+#samussy {
+  width: 23.963rem; /* was 479.25px */
+  height: 31.95rem; /* was 639px */
+  aspect-ratio: 3/4;
+  background: url(img/octy.jpg) lightgray 50% / cover no-repeat;
+  box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.25);
 }
