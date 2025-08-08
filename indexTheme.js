@@ -130,7 +130,7 @@ function waitForImagesToLoad() {
 
 function applyMobileStyles() {
     if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if(window.location.pathname.split('/').pop() === 'index.html' || window.location.pathname === 'https://birdex66.github.io'){ //checks index.html or base path
+        if(window.location.pathname.split('/').pop() === 'index.html' || window.location.pathname === '/'){ //checks index.html or base path
             var buttons = document.getElementsByClassName('buttons');
             var top = document.getElementById('top');
             var intro = document.querySelector('.intro');
