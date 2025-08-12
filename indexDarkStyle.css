@@ -301,8 +301,10 @@ ul.logos {
 }
 
 h3 {
-  width: 88.95rem; /* was 1779px */
-  height: 2.9rem; /* was 58px */
+  max-width: 88.95rem; /* was 1779px */
+  width:auto;
+  min-height: 2.9rem; /* was 58px */
+  height:auto;
   justify-content: left;
   text-align: left;
   color: #FFF0C8;
@@ -318,8 +320,10 @@ h3 {
 }
 
 p {
-  width: 57.1rem; /* was 1142px */
-  height: 19.55rem; /* was 391px */
+  max-width: 57.1rem; /* was 1142px */
+  width:auto;
+  min-height: 19.55rem; /* was 391px */
+  height:auto;
   color: #F8DFDF;
   font-family: Inter;
   font-size: 1.8rem; /* was 36px */

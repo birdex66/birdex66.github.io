@@ -292,6 +292,17 @@ ul.logos {
     margin-top:300px;
 }
 
+hr{
+    border-bottom:1px solid black;
+    margin:0;
+    width:80%;
+}
+
+.aboutme{
+    margin:20px;
+}
+
+
 .aboutCapImg {
   display: flex;
   flex-direction: row;
@@ -299,8 +310,10 @@ ul.logos {
 }
 
 h3 {
-  width: 88.95rem; /* was 1779px */
-  height: 2.9rem; /* was 58px */
+  max-width: 88.95rem; /* was 1779px */
+  width:auto;
+  min-height: 2.9rem; /* was 58px */
+  height:auto;
   justify-content: left;
   text-align: left;
   color: #F4FFF0;
@@ -316,8 +329,10 @@ h3 {
 }
 
 p {
-  width: 57.1rem; /* was 1142px */
-  height: 19.55rem; /* was 391px */
+  max-width: 57.1rem; /* was 1142px */
+  width:auto;
+  min-height: 19.55rem; /* was 391px */
+  height:auto;
   color: #2F4C51;
   font-family: Inter;
   font-size: 1.8rem; /* was 36px */
