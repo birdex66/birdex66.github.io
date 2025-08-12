@@ -59,7 +59,7 @@ header {
     transition: background 0.3s ease, color 0.3s ease;
     position:sticky;
     top:0;
-    z-index:9999;
+    z-index:1000;
     padding: 20px 20px;
 }
 
@@ -175,7 +175,7 @@ h2 {
     color: #F4F4F4;
     font-size: 5rem;
     font-style: italic;
-    color: 0.3s ease;
+    transition: color 0.3s ease;
     font-weight: 500;
     line-height: normal;
     margin: 0.2em 0;
@@ -207,8 +207,6 @@ ul.logos {
     background-position: center;
     transition: background-image 0.3s ease;
 }
-
-/*/* Default logos */
 
 #gitLogo {
     background-image: url('img/github-mark/github-mark.png');
@@ -264,6 +262,13 @@ ul.logos {
     margin-top: 8.75rem;
 }
 
+@media screen and (width <= 1080px) {
+    .buttons {
+        flex-direction: column;
+        gap: 6em;
+    }
+}
+
 .buttons li a {
     display: flex;
     justify-content: center;
@@ -272,7 +277,6 @@ ul.logos {
     height: 4.375rem;
     border: 1px solid #404040;
     border-radius: 0.625rem;
-    background: #CAC076;
     text-decoration: none;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     color: #3E6957;
@@ -300,6 +304,7 @@ hr{
 
 .aboutme{
     margin:20px;
+    margin-bottom:100px;
 }
 
 
@@ -317,7 +322,7 @@ h3 {
   justify-content: left;
   text-align: left;
   color: #F4FFF0;
-  font-family: Inter;
+  font-family: Inter, serif;
   font-size: 2.4rem; /* was 48px */
   font-style: italic;
   font-weight: 900;
@@ -334,7 +339,7 @@ p {
   min-height: 19.55rem; /* was 391px */
   height:auto;
   color: #2F4C51;
-  font-family: Inter;
+  font-family: Inter, serif;
   font-size: 1.8rem; /* was 36px */
   font-style: italic;
   font-weight: 400;
@@ -351,4 +356,19 @@ p {
   aspect-ratio: 3/4;
   background: url(img/octy.jpg) lightgray 50% / cover no-repeat;
   box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.25);
+}
+
+.skills{
+    justify-content: center;
+    max-width: 40em;
+    margin:3rem auto;
+    width:auto;
+    text-align: center;
+}
+
+.skills img:hover{
+    filter:
+            drop-shadow(0 0 8px #A8DB8C)
+            drop-shadow(0 0 16px #A8DB8C);
+    transition: filter 0.2s ease-in-out;
 }
