@@ -293,28 +293,37 @@ ul.logos {
 }
 
 .cont{
-    margin-top:300px;
+    display: flex;
+    flex-direction: column;
+    margin: 10em 5em;
 }
 
 hr{
     border-bottom:1px solid black;
-    margin:0;
-    width:80%;
+    margin: 3em auto auto auto;
+    scroll-margin-top: 4em;
+    width:95%;
+    justify-content: center;
+}
+
+#aboutSection{
+    margin: 9em auto auto auto;
+    scroll-margin-top: 11.5em;
+}
+#skillsprojectsSection{
+    margin: auto;
+    scroll-margin-top: 7em;
 }
 
 .aboutme{
-    margin:20px;
-    margin-bottom:100px;
-}
-
-
-.aboutCapImg {
-  display: flex;
-  flex-direction: row;
-  gap: 4em; /* was 5em */
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    margin:20px 20px;
+    align-items: center;
 }
 
 h3 {
+  grid-column: 1 / 3;
   max-width: 88.95rem; /* was 1779px */
   width:auto;
   min-height: 2.9rem; /* was 58px */
@@ -334,9 +343,10 @@ h3 {
 }
 
 p {
-  max-width: 57.1rem; /* was 1142px */
+  max-width: 65.1rem; /* was 1142px */
   width:auto;
-  min-height: 19.55rem; /* was 391px */
+  margin:auto;
+  min-height: 22rem; /* was 391px */
   height:auto;
   color: #2F4C51;
   font-family: Inter, serif;
@@ -344,18 +354,20 @@ p {
   font-style: italic;
   font-weight: 400;
   line-height: normal;
-}
-
-#response {
-  margin-top: 5rem; /* was 100px */
+  grid-column: 1 / 2;
+  /*place-self:center;*/
+    justify-self: center;
 }
 
 #samussy {
   width: 23.963rem; /* was 479.25px */
   height: 31.95rem; /* was 639px */
   aspect-ratio: 3/4;
+  grid-column: 2 / 3;
   background: url(img/octy.jpg) lightgray 50% / cover no-repeat;
   box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.25);
+  /*place-self:center;*/
+  justify-self: center;
 }
 
 .skills{
@@ -372,3 +384,51 @@ p {
             drop-shadow(0 0 16px #A8DB8C);
     transition: filter 0.2s ease-in-out;
 }
+
+.projects{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 1em;
+}
+
+
+.proj {
+    position: relative;
+    display: inline-block;
+    width: 500px; /* adjust size */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.proj img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease; /* smooth blur effect */
+}
+
+
+.proj p{
+    position: absolute;
+    top: 45%;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.proj:hover img {
+    filter: blur(6px); /* blur the image */
+}
+
+.proj:hover p {
+    opacity: 1; /* show caption on hover */
+    z-index: 2;
+}
+

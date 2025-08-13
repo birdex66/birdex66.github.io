@@ -43,7 +43,6 @@ function switchTheme(){
         newThemeLink.id = "pagestyle";
 
         if(firstThemeSwitch){
-            //await waitForImagesToLoad();
             await preloadBackgroundImages([
                 'img/Lawrencium.jpg',
                 'img/github-mark/github-mark-white.png',
@@ -89,52 +88,6 @@ function preloadBackgroundImages(urls) {
     })));
 }
 
-function waitForImagesToLoad() {
-    return new Promise((resolve, reject) => {
-        const images = Array.from(document.images);  // All <img> tags in the document
-        const svgs = Array.from(document.querySelectorAll('svg'));  // Inline SVGs
-        let loaded = 0;
-        let failed = 0;
-
-        if (images.length === 0 && svgs.length === 0) {
-            resolve();  // Resolve immediately if there are no images
-            return;
-        }
-
-        // Handle <img> elements (including SVG images used as <img>)
-        images.forEach((img) => {
-            if (img.complete && img.naturalHeight !== 0) {
-                loaded++;
-                // console.log("Loaded (preloaded):", img);
-            } else {
-                img.addEventListener('load', check);
-                img.addEventListener('error', check);
-                // console.log("Waiting for:", img);
-            }
-        });
-        function check(event) {
-            loaded++;
-            if (event && event.type === 'error') {
-                failed++;
-                console.error("Failed to load image:", event.target);
-            }
-
-            // Check if all images are loaded (or failed)
-            if (loaded + failed === images.length + svgs.length) {
-                if (failed > 0) {
-                    reject(`Failed to load ${failed} image(s)`); // Reject if any image failed to load
-                } else {
-                    resolve();  // Resolve only if all images are loaded
-                }
-            }
-        }
-    });
-}
-
-
-
-
-
 function applyMobileStyles() {
     if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         let buttons = document.getElementsByClassName('buttons');
@@ -152,7 +105,8 @@ function applyMobileStyles() {
 
         intro.style.transformOrigin = "top";
         intro.style.transform = "scale(1.3)";
-        intro.style.marginBottom = window.innerHeight - intro.getBoundingClientRect().bottom + 45  + "px";
+        intro.style.marginBottom = "30em";
+        //intro.style.marginBottom = window.innerHeight - intro.getBoundingClientRect().bottom + 45  + "px";
         console.log()
         // content.style.transformOrigin = "top";
         // content.style.transform = "scale(0.65)";
