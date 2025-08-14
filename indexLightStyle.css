@@ -342,10 +342,10 @@ h3 {
   margin-bottom: 4rem; /* was 80px */
 }
 
-p {
+#response {
   max-width: 65.1rem; /* was 1142px */
   width:auto;
-  margin:auto;
+  margin:auto 30px auto auto;
   min-height: 22rem; /* was 391px */
   height:auto;
   color: #2F4C51;
@@ -356,7 +356,7 @@ p {
   line-height: normal;
   grid-column: 1 / 2;
   /*place-self:center;*/
-    justify-self: center;
+  justify-self: center;
 }
 
 #samussy {
@@ -372,7 +372,7 @@ p {
 
 .skills{
     justify-content: center;
-    max-width: 48em;
+    max-width: 49em;
     margin:3rem auto;
     width:auto;
     text-align: center;
@@ -412,7 +412,7 @@ p {
 
 .proj p{
     position: absolute;
-    top: 45%;
+    top: 40%;
     color: white;
     font-size: 1.5em;
     font-weight: bold;
@@ -421,6 +421,17 @@ p {
     transition: opacity 0.5s ease;
     pointer-events: none;
     z-index: 2;
+    max-width: 65.1rem; /* was 1142px */
+    width:auto;
+    margin:auto;
+    min-height: 22rem; /* was 391px */
+    height:auto;
+    font-family: Inter, serif;
+    font-style: italic;
+    line-height: normal;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    /*place-self:center;*/
+    justify-self: center;
 }
 
 .proj:hover img {
@@ -430,5 +441,130 @@ p {
 .proj:hover p {
     opacity: 1; /* show caption on hover */
     z-index: 2;
+}
+
+.contactme {
+    display: block;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+    width: 50%;
+    margin: 3em 0 0 0 ;
+}
+
+.comBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* center content vertically inside .comBox */
+    align-items: center;     /* center content horizontally inside .comBox */
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 78%;          /* very wide */
+    height:35em;
+    margin: auto 60%;
+    overflow: hidden;
+    z-index: 1;
+    padding: 2em;            /* add spacing inside the box */
+    background: transparent; /* background handled by pseudo-elements */
+}
+
+.comBox::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('img/Earthly.png') no-repeat center/cover;
+    filter: blur(20px); /* adjust blur intensity */
+    /*background-size: cover;*/
+    z-index: -1; /* behind content */
+}
+
+.comBox::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* light semi-transparent overlay */
+    z-index: 1; /* above blurred background, below text */
+}
+
+.comBox > * {
+    position: relative;
+    z-index: 2; /* content stays on top */
+}
+
+.comBox input[type="text"],
+.comBox input[type="email"],
+.comBox textarea {
+    width: 75%;
+    margin-bottom: 3px;
+    padding: 11px;
+    border: none;
+    box-sizing: border-box;
+    resize: vertical;
+    overflow: auto;
+    background-color: #F4FFF2;
+    opacity: 1;
+    border-radius: 7px;
+    font-family: 'Inter', sans-serif;
+}
+.comBox textarea {
+    max-height: 30em;
+    height:auto;
+}
+
+.comBox input[type="submit"]#btn {
+    width:60%;
+    padding: 10px 25px;
+    border: 1px #6C826E solid;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #FFF;
+    background:url(img/Petrol.jpg) no-repeat center/cover;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease , color 0.3s ease;
+}
+
+.comBox input[type="submit"]#btn:hover{
+    background:url('img/Harvey.jpg') no-repeat center/cover;
+}
+
+.gap:active{
+    display: none;
+}
+
+.err{
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.error,
+.errorGood {
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.error {
+    background: #E1761A;
+}
+
+.errorGood {
+    background: #71847A;
+}
+
+footer{
+    width:150%;
+    height:150%;
+    filter:blur(20px);
+    background:url(img/Earthly.png);
 }
 

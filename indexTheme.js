@@ -44,29 +44,43 @@ function switchTheme(){
 
         if(firstThemeSwitch){
             await preloadBackgroundImages([
+                'img/Handshake_avatar_round.png',
                 'img/Lawrencium.jpg',
-                'img/github-mark/github-mark-white.png',
-                'img/in-logo/in-logo/InBug-White.png',
-                'img/github-mark/github-mark.png',
-                'img/in-logo/in-logo/InBug-Black.png',
-                'img/badges/x86 Assembly-525252_2.svg',
-                'img/badges/MIPS Assembly-525252.svg',
-                'img/badges/C-A8B9CC.svg',
+                'img/Petrol.jpg',
+                'img/octy.jpg',
+                'img/badges/Csharp.svg',
+                'img/badges/HTML5-E34F26.svg',
+                'img/badges/OpenSSL-721412.svg',
+                'img/badges/java.svg',
                 'img/badges/C++-00599C.svg',
-                'img/badges/C%23-239120.svg',
+                'img/badges/IntelliJIDEA-000000.svg',
                 'img/badges/Python-3776AB.svg',
                 'img/badges/javascript.svg',
-                'img/badges/Windows-0078D6.svg',
+                'img/badges/C-A8B9CC.svg',
                 'img/badges/Linux-FCC624.svg',
-                'img/badges/Unix-000000.svg',
-                'img/badges/Git-F05032.svg',
-                'img/badges/GitHub-181717.svg',
-                'img/badges/OpenSSL-721412.svg',
                 'img/badges/Spring Boot-6DB33F.svg',
-                'img/badges/HTML5-E34F26.svg',
-                'img/badges/CSS3-1572B6.svg',
+                'img/badges/Ubuntu-E95420.svg',
+                'img/badges/x86 Assembly-525252_2.svg',
+                'img/badges/Electron-47848F.svg',
+                'img/badges/NeoVim.svg',
+                'img/badges/Windows-0078D6.svg',
+                'img/badges/Git-F05032.svg',
                 'img/badges/Node.svg',
-                'img/badges/Electron-47848F.svg'
+                'img/badges/androidStudio.svg',
+                'img/badges/GitHub-181717.svg',
+                'img/badges/Notepad++.svg',
+                'img/badges/githubPages.svg',
+                'img/github-mark/github-mark-white.png',
+                'img/github-mark/github-mark-white.svg',
+                'img/github-mark/github-mark.png',
+                'img/github-mark/github-mark.svg',
+                'img/in-logo/in-logo',
+                'img/projects/calcJS.png',
+                'img/projects/checkIn.png',
+                'img/projects/computeConvert.png',
+                'img/projects/passwordManager.png',
+                'img/projects/tetris.png',
+                'img/projects/website.png'
             ]);
             firstThemeSwitch = !firstThemeSwitch;
         }
@@ -133,3 +147,47 @@ function applyMobileStyles() {
 document.addEventListener('DOMContentLoaded', function () {
     applyMobileStyles();
 });
+
+const form = document.getElementById("contactForm");
+const err = document.getElementById("err");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const token = await turnstile.getResponse();
+    if (!token) {
+        showMessage("Please complete the CAPTCHA.", "error");
+        return;
+    }
+
+    const formData = new FormData(form);
+    formData.append("cf-turnstile-response", token);
+
+    emailjs.sendForm("service_nzfyjiy", "template_0rwa4v9", this)
+        .then(() => {
+            showMessage("Message sent successfully!", "errorGood");
+        }, (error) => {
+            showMessage(`Failed to send message: ${error.text}`, "error");
+        });
+
+    form.reset();
+    turnstile.reset();
+});
+
+function showMessage(message, className) {
+    err.className = "";
+    err.classList.add(className);
+    err.innerHTML = `<strong>${message}</strong>`;
+    err.style.display = "block";
+    err.style.opacity = "1";
+
+    setTimeout(() => {
+        err.classList.add("fade-out");
+        setTimeout(() => {
+            err.innerHTML = "";
+            err.className = "";
+            // err.style.display = "none";
+            err.style.opacity = "0";
+        }, 500);
+    }, 3000);
+}

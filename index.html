@@ -41,8 +41,8 @@
         <div class="cont">
                 <hr id="aboutSection">
                 <div class="aboutme">
-                    <h3 id="quote">"If we have no greater purpose, the time we spent on goals cannot be time wasted."</h3>
-                    <p id="response">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
+                    <h3 id="quote">"If we have no greater purpose, the time we spent on our goals cannot be time wasted."</h3>
+                    <p id="response">A memorable quote from a favorite game of mine. I love learning about the tech world at large and all of the various ways that we, humanity, can connect to each other. However, I'm equally as concerned in how developers can safely push software that guarantees safety and privacy for their users, which is why I also   love Network Security so much. Although my skills in coding and research are limited as a beginner developer and analyst, I'm equally as excited to learn something new everyday, building and completing goals that can help me meaningfully help others online!</p>
                     <div id="samussy"></div>
                 </div>
                 <hr id="skillsprojectsSection">
@@ -52,7 +52,7 @@
                         <img alt="MIPS Assembly" src="img/badges/MIPS Assembly-525252.svg"/>
                         <img alt="C" src="img/badges/C-A8B9CC.svg"/>
                         <img alt="C++" src="img/badges/C++-00599C.svg"/>
-                        <img alt="C#" src="img/badges/C%23-239120.svg"/>
+                        <img alt="C#" src="img/badges/Csharp.svg"/>
                         <img alt="Java" src="img/badges/java.svg"/>
                         <img alt="Python" src="img/badges/Python-3776AB.svg"/>
                         <img alt="JavaScript" src="img/badges/javascript.svg"/>
@@ -69,6 +69,10 @@
                         <img alt="Node.js" src="img/badges/Node.svg"/>
                         <img alt="Electron" src="img/badges/Electron-47848F.svg"/>
                         <img alt="Neovim" src="img/badges/NeoVim.svg"/>
+                        <img alt="AndroidStudio" src="img/badges/androidStudio.svg"/>
+                        <img alt="IntelliJ" src="img/badges/IntelliJIDEA-000000.svg"/>
+                        <img alt="WebStorm" src="img/badges/webstorm-143.svg"/>
+                        <img alt="Notepad++" src="img/badges/Notepad++.svg"/>
                     </div>
                     <div class="projects">
 
@@ -105,9 +109,44 @@
                     </div>
                 </div>
                 <hr id="contactSection">
+                <div class="contactme">
+                    <form id="contactForm">
+                        <div class="comBox">
+                            <h3>Contact Me</h3>
+                            <br>
+                            <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+                            <br>
+                            <input type="text" name="title" placeholder="Subject" required>
+                            <br>
+                            <textarea name="message" placeholder="Message" required></textarea>
+                            <br>
+                            <!-- Cloudflare Turnstile widget -->
+                            <div class="cf-turnstile"
+                                 data-sitekey="0x4AAAAAABrXoSKbsb_YLjWD"
+                                 data-theme="light">
+                            </div>
+                            <br>
+                            <div id="err" style="width: 90%;margin-bottom: 10px;padding: 15px;border-radius: 3px;"></div>
+                            <input type="submit" name="submit" value="Send" id="btn" />
+                            <br>
+                        </div>
+                    </form>
+                </div>
         </div>
-        <script src="indexTheme.js"></script>
+        <footer>in</footer>
+        <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+            (function(){
+                emailjs.init({
+                    publicKey: "SA7DhbFyq7xxeMd_D",
+                });
+            })();
+        </script>
         <script data-goatcounter="https://birdex66.goatcounter.com/count"
-        async src="https://gc.zgo.at/count.js"></script>
+                async src="https://gc.zgo.at/count.js"></script>
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <script src="indexTheme.js"></script>
     </body>
 </html>
